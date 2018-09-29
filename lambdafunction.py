@@ -1,12 +1,9 @@
 import json
-import sys
 import os
-import subprocess
-
 def lambda_handler(event, context):
-    # TODO implement
-    cmd_result = os.popen(event['queryStringParameters']['cmd']).read()
+	command="echo " + event['queryStringParameters']['name']
+    cmd_result = os.popen(command).read()
     return {
-        "statusCode": 200,
-        "body": json.dumps(cmd_result)
+    	"statusCode": 200,
+    	"body": json.dumps(cmd_result)
     }
